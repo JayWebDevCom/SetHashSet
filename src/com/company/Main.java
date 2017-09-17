@@ -76,26 +76,20 @@ public class Main {
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        System.out.println("Planets");
-        for(AstronomicalEntity planet : planets) {
+        System.out.println("Planets...");
+
+        for (AstronomicalEntity planet : planets) {
             System.out.println("\t" + planet.getName());
         }
 
-        AstronomicalEntity body = solarSystem.get("Mars");
+        AstronomicalEntity body = solarSystem.get("Jupiter");
         System.out.println("Moons of " + body.getName());
-        for(AstronomicalEntity jupiterMoon: body.getSatellites()) {
-            System.out.println("\t" + jupiterMoon.getName());
-        }
-
-        Set<AstronomicalEntity> moons = new HashSet<>();
-        for(AstronomicalEntity planet : planets) {
-            moons.addAll(planet.getSatellites());
-        }
-
-        System.out.println("All Moons");
-        for(AstronomicalEntity moon : moons) {
+        for (AstronomicalEntity moon : body.getSatellites()) {
             System.out.println("\t" + moon.getName());
         }
+
+
+
 
     }
 }
