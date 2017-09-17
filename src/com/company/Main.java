@@ -88,8 +88,24 @@ public class Main {
             System.out.println("\t" + moon.getName());
         }
 
+        Set<AstronomicalEntity> allMoons = new HashSet<>();
 
+        for (AstronomicalEntity planet : planets) {
+            allMoons.addAll(planet.getSatellites());
+        }
 
+        System.out.println("All Moons from all planets...");
+        for (AstronomicalEntity moon : allMoons) {
+            System.out.println("\t" + moon.getName()); // no duplicates
+        }
+
+        AstronomicalEntity pluto = new AstronomicalEntity("Pluto", 248);
+        AstronomicalEntity pluto2 = new AstronomicalEntity("Pluto", 248);
+        System.out.println(pluto.equals(pluto2));
+        System.out.println();
+
+        pluto2 = new AstronomicalEntity("Plutooooo", 842);
+        System.out.println(pluto.equals(pluto2)); // same because we are comparing by name
 
     }
 }
