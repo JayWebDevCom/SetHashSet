@@ -1,5 +1,6 @@
 package further.set;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ public class SetMain {
         Set<Integer> cubes = new HashSet<>();
 
         for (int i = 1; i <= 100; i++) {
-            squares.add(i*i);
+            squares.add(i * i);
             cubes.add(i * i * i);
         }
 
@@ -27,14 +28,25 @@ public class SetMain {
         System.out.println();
         System.out.println("There are " + intersection.size() + " elements in intersection");
 
-        intersection.forEach( i -> {
+        intersection.forEach(i -> {
             System.out.println(i + " is the square of " + Math.sqrt(i) + " and the cube of " + Math.cbrt(i));
         });
 
+        Set<String> words = new HashSet<>();
+        String[] arrayWords = "the quick brown fox jumps over the lazy dog".split(" ");
+        words.addAll(Arrays.asList(arrayWords));
 
+        words.forEach(word -> {
+            System.out.println(word);
+        });
 
+        Set<String> nature = new HashSet<>();
+        Set<String> divine = new HashSet<>();
+        String[] arrayNatureWords = { "all", "nature", "is", "but", "art", "unknown", "to", "thee" };
+        nature.addAll(Arrays.asList(arrayNatureWords));
 
-
+        String[] arrayDivineWords = { "to", "err", "is", "human", "to", "forgive", "is", "divine" };
+        divine.addAll(Arrays.asList(arrayDivineWords));
 
     }
 }
