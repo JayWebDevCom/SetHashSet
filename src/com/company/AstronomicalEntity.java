@@ -32,23 +32,22 @@ public final class AstronomicalEntity {
     }
 
     @Override
-    public boolean equals(Object obj){ // careful to override not overload
-        if (this == obj){
+    public boolean equals(Object obj) { // careful to override not overload
+        if (this == obj) {
             return true;
         }
-
         System.out.println("obj.getClass() is " + obj.getClass());
         System.out.println("this.getClass() is " + this.getClass());
-
         if (obj == null || (obj.getClass() != this.getClass())) {
             return false;
         }
-
         String objName = ((AstronomicalEntity) obj).getName();
-
         return this.getName().equals(objName);
     }
 
-
-
+    @Override
+    public int hashCode() {
+        System.out.println("hashcode called");
+        return this.name.hashCode() + 57; // guarantees the return of a non-zero number
+    }
 }

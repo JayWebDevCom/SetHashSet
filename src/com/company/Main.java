@@ -76,6 +76,10 @@ public class Main {
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
+        temp = new AstronomicalEntity("Pluto", 842);
+        solarSystem.put(temp.getName(), temp);
+        planets.add(temp);
+
         System.out.println("Planets...");
 
         for (AstronomicalEntity planet : planets) {
@@ -90,6 +94,9 @@ public class Main {
 
         Set<AstronomicalEntity> allMoons = new HashSet<>();
 
+        AstronomicalEntity pluto = new AstronomicalEntity("Pluto", 248);
+        planets.add(pluto); // second pluto will not show because of hashcode override
+
         for (AstronomicalEntity planet : planets) {
             allMoons.addAll(planet.getSatellites());
         }
@@ -99,7 +106,6 @@ public class Main {
             System.out.println("\t" + moon.getName()); // no duplicates
         }
 
-        AstronomicalEntity pluto = new AstronomicalEntity("Pluto", 248);
         AstronomicalEntity pluto2 = new AstronomicalEntity("Pluto", 248);
         System.out.println(pluto.equals(pluto2));
         System.out.println();
