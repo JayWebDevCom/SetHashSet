@@ -1,5 +1,7 @@
 package further.set;
 
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -34,7 +36,7 @@ public class SetMain {
 
         Set<String> words = new HashSet<>();
         String[] arrayWords = "the quick brown fox jumps over the lazy dog".split(" ");
-        words.addAll(Arrays.asList(arrayWords));
+        words.addAll(Arrays.asList(arrayWords)); // an array added into a set
 
         words.forEach(word -> {
             System.out.println(word);
@@ -48,5 +50,35 @@ public class SetMain {
         String[] arrayDivineWords = { "to", "err", "is", "human", "to", "forgive", "is", "divine" };
         divine.addAll(Arrays.asList(arrayDivineWords));
 
+        System.out.println();
+
+        System.out.println("nature - divine");
+        Set<String> diff1 = new HashSet<>(nature);
+        diff1.removeAll(divine);
+        printSet(diff1);
+
+        System.out.println("divine - nature");
+        Set<String> diff2 = new HashSet<>(divine);
+        diff2.removeAll(nature);
+        printSet(diff2);
+        System.out.println();
+
+        Set<String> unionTest = new HashSet<>(nature);
+        unionTest.addAll(divine); // all together
+        Set<String> intersectionTest = new HashSet<>(nature);
+        intersectionTest.retainAll(divine); // occur in both
+
+        System.out.println("Symmetric Difference is removing intersection from union");
+        unionTest.removeAll(intersectionTest);
+        printSet(unionTest);
+
+    }
+
+    private static void printSet(Set<String> theSet){
+        System.out.print("\t");
+        theSet.forEach( entry -> {
+            System.out.print(entry + " ");
+        });
+        System.out.println();
     }
 }
