@@ -1,7 +1,5 @@
 package further.set;
 
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -72,13 +70,27 @@ public class SetMain {
         unionTest.removeAll(intersectionTest);
         printSet(unionTest);
 
+        if (nature.containsAll(divine)){
+            System.out.println("divine is a subset of nature");
+        } else {
+            System.out.println("divine is NOT a subset of nature");
+        }
+
+        if (nature.containsAll(intersectionTest)){
+            System.out.println("Intersection is a subset of nature");
+        }
+
+        if (divine.containsAll(intersectionTest)){
+            System.out.println("Intersection is a subset of divine");
+        }
+
     }
 
     private static void printSet(Set<String> theSet){
         System.out.print("\t");
-        theSet.forEach( entry -> {
-            System.out.print(entry + " ");
-        });
+        theSet.forEach( entry -> System.out.print(entry + " "));
         System.out.println();
     }
+
+
 }
