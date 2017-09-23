@@ -3,10 +3,10 @@ package challenge;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class AstronomicalEntity {
+public abstract class AstronomicalEntity {
     private final String name;
     private final double orbitalPeriod;
-    private final Set<AstronomicalEntity> satellites;
+    protected final Set<AstronomicalEntity> satellites;
     private final BodyType bodyType;
 
     public AstronomicalEntity(String name, double orbitalPeriod, BodyType bodyType) {
@@ -28,7 +28,7 @@ public final class AstronomicalEntity {
         return orbitalPeriod;
     }
 
-    public boolean addSatelite(AstronomicalEntity moon){
+    public boolean addSatellite(AstronomicalEntity moon){
         return this.satellites.add(moon);
     }
 
@@ -67,7 +67,7 @@ public final class AstronomicalEntity {
         return "AstronomicalEntity{" +
                 "name='" + name + '\'' +
                 ", orbitalPeriod=" + orbitalPeriod +
-              //  ", satellites=" + satellites +
+                ", satellites=" + satellites +
                 ", bodyType=" + bodyType +
                 '}';
     }
