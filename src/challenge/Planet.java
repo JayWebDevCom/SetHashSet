@@ -8,7 +8,7 @@ public class Planet extends AstronomicalEntity {
 
     @Override
     public boolean addSatellite(AstronomicalEntity moon) {
-        if (moon.getBodyType() == BodyType.MOON) {
+        if (moon.getKey().getBodyType() == BodyType.MOON) {
             return this.satellites.add(moon);
         } else {
             return false;
